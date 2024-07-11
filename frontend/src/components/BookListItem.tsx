@@ -7,22 +7,27 @@ import {
   useTheme,
   Box,
 } from "@mui/material";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
 import Grid from "@mui/material/Grid";
 import { Book } from "@/lib/types";
 import Divider from "@mui/material/Divider";
+import { useDispatch } from "react-redux";
+import { addBook } from "@/redux/features/book-slice";
 
 const BookListItem = ({ book }: { book: Book }) => {
   const theme = useTheme();
+  const dispatch = useDispatch();
 
-  const cardStyles = {
-    display: "flex",
-    flexDirection: "row",
-    height: "100%",
-    width: "100%",
-    padding: 0,
+  const addBookAction = (book: Book) => {
+    dispatch(addBook(book));
   };
+
+  // const cardStyles = {
+  //   display: "flex",
+  //   flexDirection: "row",
+  //   height: "100%",
+  //   width: "100%",
+  //   padding: 0,
+  // };
 
   const title = {
     fontWeight: "800",
@@ -81,6 +86,7 @@ const BookListItem = ({ book }: { book: Book }) => {
             variant="contained"
             color="primary"
             style={{ marginTop: "10px" }}
+            onClick={() => addBookAction(book)}
           >
             Add
           </Button>

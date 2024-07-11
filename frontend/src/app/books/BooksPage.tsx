@@ -19,8 +19,11 @@ const BooksPage = ({ books }: { books: Book[] }) => {
   const theme = useTheme();
   const [searchQuery, setSearchQuery] = useState("");
   const dispatch = useDispatch();
+  const selectedBooks = useSelector(
+    (state: RootState) => state.bookReducer.books
+  );
 
-  const filteredBooks = books.filter((book: Book) =>
+  const filteredSelectedBooks = selectedBooks.filter((book: Book) =>
     book.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
@@ -48,7 +51,7 @@ const BooksPage = ({ books }: { books: Book[] }) => {
 
   return (
     <Container>
-      <BooksList books={filteredBooks} />
+      <BooksList books={books} />
       <div className="flex items-center justify-between ">
         <Typography variant="h2" gutterBottom sx={title}>
           Books
@@ -69,13 +72,13 @@ const BooksPage = ({ books }: { books: Book[] }) => {
         sx={textFieldStyle}
       />
 
-      {filteredBooks.length === 0 ? (
+      {filteredSelectedBooks.length === 0 ? (
         <Typography variant="body1" color="text.secondary">
           No books found.
         </Typography>
       ) : (
         <Grid container spacing={4} className="mb-6">
-          {filteredBooks.map((book: Book) => (
+          {filteredSelectedBooks.map((book: Book) => (
             <Grid item key={book.id} xs={12} sm={4} md={3}>
               <BookCard book={book} />
             </Grid>

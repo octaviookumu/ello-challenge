@@ -23,7 +23,9 @@ import { closeDialog } from "@/redux/features/dialog-slice";
 const BooksList = ({ books }: { books: Book[] }) => {
   const theme = useTheme();
   const [searchQuery, setSearchQuery] = useState("");
-  const dialogState = useSelector((state: RootState) => state.dialog.open);
+  const dialogState = useSelector(
+    (state: RootState) => state.dialogReducer.open
+  );
   const dispatch = useDispatch();
 
   const filteredBooks = books.filter((book: Book) =>

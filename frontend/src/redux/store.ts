@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import dialogReducer from "./features/dialog-slice";
+import bookReducer from "./features/book-slice";
 
 export const store = configureStore({
   reducer: {
-    dialog: dialogReducer,
+    dialogReducer,
+    bookReducer,
   },
 });
 
