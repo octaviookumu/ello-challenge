@@ -13,7 +13,7 @@ import Button from "@mui/material/Button";
 import { openDialog } from "@/redux/features/dialog-slice";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "@/redux/store";
-import BooksList from "./BooksList";
+import BookList from "./BookList";
 
 // Books selected by Teacher for students
 const SelectedBooks = ({ books }: { books: Book[] }) => {
@@ -36,13 +36,9 @@ const SelectedBooks = ({ books }: { books: Book[] }) => {
     dispatch(openDialog());
   };
 
-  const title = {
+  const titleStyles = {
     marginTop: "2rem",
     color: theme.palette.secondary.main,
-  };
-
-  const textFieldStyle = {
-    color: "red",
   };
 
   const buttonStyles = {
@@ -55,9 +51,9 @@ const SelectedBooks = ({ books }: { books: Book[] }) => {
 
   return (
     <Container>
-      <BooksList books={books} />
+      <BookList books={books} />
       <div className="flex items-center justify-between ">
-        <Typography variant="h2" gutterBottom sx={title}>
+        <Typography variant="h2" gutterBottom sx={titleStyles}>
           Books
         </Typography>
 
@@ -78,7 +74,6 @@ const SelectedBooks = ({ books }: { books: Book[] }) => {
         value={searchQuery}
         onChange={handleSearchChange}
         style={{ marginBottom: "16px" }}
-        sx={textFieldStyle}
         color="secondary"
       />
 

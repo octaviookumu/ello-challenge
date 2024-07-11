@@ -25,12 +25,12 @@ const BookCard = ({ book }: { book: Book }) => {
     height: "100%",
   };
 
-  const title = {
+  const titleStyles = {
     fontWeight: "800",
     color: theme.palette.secondary.main,
   };
 
-  const buttonStyle = {
+  const buttonStyles = {
     color: "white",
     background: theme.palette.error.main,
     marginLeft: "auto",
@@ -46,7 +46,7 @@ const BookCard = ({ book }: { book: Book }) => {
         title={book.title}
       />
       <CardContent sx={{ flexGrow: 1 }}>
-        <Typography variant="body2" fontWeight={800} sx={title}>
+        <Typography variant="body2" fontWeight={800} sx={titleStyles}>
           {book.title}
         </Typography>
         <Typography variant="body2" color="text.secondary">
@@ -55,18 +55,11 @@ const BookCard = ({ book }: { book: Book }) => {
         <Typography variant="body2" color="text.primary">
           Reading Level: {book.readingLevel}
         </Typography>
-        {/* <Button
-          variant="contained"
-          color="primary"
-          style={{ marginTop: "10px" }}
-        >
-          Buy
-        </Button> */}
       </CardContent>
       <CardActions>
         <Button
           size="small"
-          sx={buttonStyle}
+          sx={buttonStyles}
           variant="contained"
           onClick={() => handleDelete(book.id)}
         >

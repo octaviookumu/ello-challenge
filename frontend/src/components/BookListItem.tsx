@@ -9,7 +9,6 @@ import {
 } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import { Book } from "@/lib/types";
-import Divider from "@mui/material/Divider";
 import { useDispatch } from "react-redux";
 import { addBook } from "@/redux/features/book-slice";
 
@@ -21,32 +20,32 @@ const BookListItem = ({ book }: { book: Book }) => {
     dispatch(addBook(book));
   };
 
-  // const cardStyles = {
-  //   display: "flex",
-  //   flexDirection: "row",
-  //   height: "100%",
-  //   width: "100%",
-  //   padding: 0,
-  // };
-
   const title = {
     fontWeight: "800",
     color: theme.palette.secondary.main,
   };
 
-  const gridContainerStyle = {
+  const gridContainerStyles = {
     width: "95%",
     margin: "auto",
   };
 
-  const gridItemStyle = {
+  const gridItemStyles = {
     marginTop: "0.5rem",
     marginBottom: "0.5rem",
   };
 
+  const buttonStyles = {
+    color: theme.palette.background.default,
+    backgroundColor: theme.palette.success.main,
+    padding: ".5rem 1.3rem",
+    borderRadius: "50px",
+    fontWeight: "700",
+  };
+
   return (
-    <Grid container sx={gridContainerStyle}>
-      <Grid container sx={gridItemStyle}>
+    <Grid container sx={gridContainerStyles}>
+      <Grid container sx={gridItemStyles}>
         <Grid xs={10} sm={2} md={2} sx={{ margin: "auto" }}>
           <CardMedia
             component="img"
@@ -87,6 +86,7 @@ const BookListItem = ({ book }: { book: Book }) => {
             color="primary"
             style={{ marginTop: "10px" }}
             onClick={() => addBookAction(book)}
+            sx={buttonStyles}
           >
             Add
           </Button>

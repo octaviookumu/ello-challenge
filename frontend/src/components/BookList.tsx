@@ -16,7 +16,7 @@ import { RootState } from "@/redux/store";
 import { closeDialog } from "@/redux/features/dialog-slice";
 
 // Displays list of books Teacher can select
-const BooksList = ({ books }: { books: Book[] }) => {
+const BookList = ({ books }: { books: Book[] }) => {
   const theme = useTheme();
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -33,25 +33,25 @@ const BooksList = ({ books }: { books: Book[] }) => {
 
   const handleClose = () => {
     dispatch(closeDialog());
-    console.log("close");
   };
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(event.target.value);
   };
 
-  const textFieldStyle = {
+  const textFieldStyles = {
     color: theme.palette.secondary.main,
+    marginBottom: "16px",
   };
 
-  const dialogStyle = {
+  const dialogStyles = {
     maxWidth: "600px",
     height: "600px",
     margin: "auto",
   };
 
   return (
-    <Dialog onClose={handleClose} open={dialogState} sx={dialogStyle}>
+    <Dialog onClose={handleClose} open={dialogState} sx={dialogStyles}>
       <DialogTitle>
         <TextField
           autoFocus
@@ -60,8 +60,7 @@ const BooksList = ({ books }: { books: Book[] }) => {
           fullWidth
           value={searchQuery}
           onChange={handleSearchChange}
-          style={{ marginBottom: "16px" }}
-          sx={textFieldStyle}
+          sx={textFieldStyles}
         />
       </DialogTitle>
 
@@ -94,4 +93,4 @@ const BooksList = ({ books }: { books: Book[] }) => {
   );
 };
 
-export default BooksList;
+export default BookList;
