@@ -23,7 +23,7 @@ const BookCard = ({ book }: { book: Book }) => {
   };
 
   return (
-    <Card className="bookCard" sx={cardStyles}>
+    <Card sx={cardStyles}>
       <CardMedia
         component="img"
         alt={book.title}

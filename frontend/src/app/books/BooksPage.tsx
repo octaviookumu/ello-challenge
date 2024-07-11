@@ -9,10 +9,16 @@ import {
 } from "@mui/material";
 import BookCard from "@/components/BookCard";
 import { Book } from "@/lib/types";
+import Button from "@mui/material/Button";
+import { openDialog } from "@/redux/features/dialog-slice";
+import { useSelector, useDispatch } from "react-redux";
+import { RootState } from "@/redux/store";
+import BooksList from "./BooksList";
 
 const BooksPage = ({ books }: { books: Book[] }) => {
   const theme = useTheme();
   const [searchQuery, setSearchQuery] = useState("");
+  const dispatch = useDispatch();
 
   const filteredBooks = books.filter((book: Book) =>
     book.title.toLowerCase().includes(searchQuery.toLowerCase())
@@ -22,20 +28,36 @@ const BooksPage = ({ books }: { books: Book[] }) => {
     setSearchQuery(event.target.value);
   };
 
+  const handleClickOpen = () => {
+    dispatch(openDialog());
+  };
+
   const title = {
     marginTop: "2rem",
     color: theme.palette.secondary.main,
   };
 
-  const textField = {
+  const textFieldStyle = {
     color: theme.palette.secondary.main,
+  };
+
+  const buttonStyle = {
+    color: "white",
+    backgroundColor: theme.palette.warning.main,
   };
 
   return (
     <Container>
-      <Typography variant="h1" gutterBottom sx={title}>
-        Books
-      </Typography>
+      <BooksList books={filteredBooks} />
+      <div className="flex items-center justify-between ">
+        <Typography variant="h2" gutterBottom sx={title}>
+          Books
+        </Typography>
+
+        <Button variant="outlined" onClick={handleClickOpen}>
+          Add Books
+        </Button>
+      </div>
 
       <TextField
         label="Search by Book Title"
@@ -44,7 +66,7 @@ const BooksPage = ({ books }: { books: Book[] }) => {
         value={searchQuery}
         onChange={handleSearchChange}
         style={{ marginBottom: "16px" }}
-        sx={textField}
+        sx={textFieldStyle}
       />
 
       {filteredBooks.length === 0 ? (
