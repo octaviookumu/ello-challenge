@@ -15,7 +15,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "@/redux/store";
 import BooksList from "./BooksList";
 
-const BooksPage = ({ books }: { books: Book[] }) => {
+// Books selected by Teacher for students
+const SelectedBooks = ({ books }: { books: Book[] }) => {
   const theme = useTheme();
   const [searchQuery, setSearchQuery] = useState("");
   const dispatch = useDispatch();
@@ -41,12 +42,15 @@ const BooksPage = ({ books }: { books: Book[] }) => {
   };
 
   const textFieldStyle = {
-    color: theme.palette.secondary.main,
+    color: "red",
   };
 
-  const buttonStyle = {
-    color: "white",
-    backgroundColor: theme.palette.warning.main,
+  const buttonStyles = {
+    color: theme.palette.background.default,
+    backgroundColor: theme.palette.success.main,
+    padding: ".8rem 1.5rem",
+    borderRadius: "50px",
+    fontWeight: "700",
   };
 
   return (
@@ -57,7 +61,12 @@ const BooksPage = ({ books }: { books: Book[] }) => {
           Books
         </Typography>
 
-        <Button variant="outlined" onClick={handleClickOpen}>
+        <Button
+          variant="contained"
+          onClick={handleClickOpen}
+          className="add-books-button"
+          sx={buttonStyles}
+        >
           Add Books
         </Button>
       </div>
@@ -70,6 +79,7 @@ const BooksPage = ({ books }: { books: Book[] }) => {
         onChange={handleSearchChange}
         style={{ marginBottom: "16px" }}
         sx={textFieldStyle}
+        color="secondary"
       />
 
       {filteredSelectedBooks.length === 0 ? (
@@ -89,4 +99,4 @@ const BooksPage = ({ books }: { books: Book[] }) => {
   );
 };
 
-export default BooksPage;
+export default SelectedBooks;

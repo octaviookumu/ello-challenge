@@ -1,11 +1,6 @@
 "use client";
 import DialogTitle from "@mui/material/DialogTitle";
 import Dialog from "@mui/material/Dialog";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemAvatar from "@mui/material/ListItemAvatar";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
 import { Book } from "@/lib/types";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -20,14 +15,18 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "@/redux/store";
 import { closeDialog } from "@/redux/features/dialog-slice";
 
+// Displays list of books Teacher can select
 const BooksList = ({ books }: { books: Book[] }) => {
   const theme = useTheme();
   const [searchQuery, setSearchQuery] = useState("");
+
+  // Get dialog visibility state
   const dialogState = useSelector(
     (state: RootState) => state.dialogReducer.open
   );
   const dispatch = useDispatch();
 
+  // Filter selected books
   const filteredBooks = books.filter((book: Book) =>
     book.title.toLowerCase().includes(searchQuery.toLowerCase())
   );

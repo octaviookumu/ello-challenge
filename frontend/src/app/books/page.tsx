@@ -2,7 +2,7 @@
 import { gql } from "@apollo/client";
 import createApolloClient from "../../lib/apollo-client";
 import { Book } from "@/lib/types";
-import BooksPage from "./BooksPage";
+import SelectedBooks from "./SelectedBooks";
 import { v4 as uuidv4 } from "uuid";
 import { useEffect, useState } from "react";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -10,6 +10,7 @@ import { Container } from "@mui/material";
 
 const client = createApolloClient();
 
+// Handles fetching book data
 const BooksContainer = () => {
   const [books, setBooks] = useState<Book[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
@@ -62,7 +63,7 @@ const BooksContainer = () => {
     );
   if (error) return <div>{error}</div>;
 
-  return <BooksPage books={books} />;
+  return <SelectedBooks books={books} />;
 };
 
 export default BooksContainer;
