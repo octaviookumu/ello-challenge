@@ -15,6 +15,7 @@ export default function Home() {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
+  // fetch data
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -31,6 +32,7 @@ export default function Home() {
           `,
         });
 
+        // generate random id for looping through books
         const booksWithIds = data.books.map((book: Book) => ({
           ...book,
           id: uuidv4(),
