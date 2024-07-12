@@ -16,6 +16,7 @@ Brief description of the project.
   ├── components            <- Houses book components
   ├── lib                   <- Has Apollo client and theme
   ├── redux                 <- Handles dialog and books state
+```
 
 ## Challenge
 
@@ -25,14 +26,6 @@ The view has the following features in their components:-
 2. A list of search results that displays the book title, author, and a button to add the book to the students reading list. (BookList.tsx)
 3. A reading list that displays all the books that the teacher has added. (SelectedBooks.tsx)
 4. A button to remove a book from the reading list. (BookCard.tsx)
-
-### Data
-
-To run the frontend switch into `src/frontend` folder and run (Node 18)
-
-```bash
-npm run dev
-```
 
 ### Data
 
@@ -51,6 +44,7 @@ npm start
 To run the frontend switch into `src/frontend` folder and run (Node 18 for Next.js 14)
 
 ```bash
+npm run install
 npm run dev
 ```
 
