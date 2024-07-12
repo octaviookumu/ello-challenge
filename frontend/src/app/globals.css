@@ -6,30 +6,24 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+  /* Primary colors */
+  --primary-turquoise: #5ACCCC;
+  --primary-white: #FFF
+  --primary-steel-blue: #335C6E
+  --primary-steel-yellow: #FABD33
+
+  /* Secondary colors */
+  --secondary-turquoise-light: #CFFAFA;
+  --secondary-orange-red: #F76434;
+  --secondary--orange-teal: #4AA088
+  --secondary--yellow-dark: #FAAD00
+  --secondary--turquoise-dark1: #53C2C2
+  --secondary--turquoise-dark2: #28B8B8
+  --secondary--orange-pastel: #FFE6DC
 }
 
 body {
-  /* color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb)); */
   font-family: "Mulish", sans-serif;
   font-optical-sizing: auto;
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
 }
