@@ -66,7 +66,7 @@ const BookList = ({ books }: { books: Book[] }) => {
 
       <DialogContent>
         <DialogContentText>
-          <Box sx={{ width: "100%" }}>
+          <Box sx={dialogStyles}>
             {filteredBooks.length === 0 ? (
               <Box sx={{ width: "600px", height: "600px" }}>
                 <Typography
