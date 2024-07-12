@@ -3,16 +3,18 @@
 
 # Ello Engineering Challenge
 
-/public - contains book assets
-/src
-/app
-/page.tsx - fetches data
-/components - houses book components
-/lib - has apollo client and theme
-/redux - handles dialog and books state
+Brief description of the project.
 
-👋 Hello Again,
-Above is a rough draft of the project structure and what it contains for ease in navigation.
+## Project Structure
+
+```bash
+/public                   <- Contains book assets
+/src
+├── app
+│   └── page.tsx          <- Fetches data
+├── components            <- Houses book components
+├── lib                   <- Has Apollo client and theme
+├── redux                 <- Handles dialog and books state
 
 ## Challenge
 
