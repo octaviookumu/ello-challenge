@@ -8,13 +8,14 @@ Brief description of the project.
 ## Project Structure
 
 ```bash
-/public                   <- Contains book assets
-/src
-├── app
-│   └── page.tsx          <- Fetches data
-├── components            <- Houses book components
-├── lib                   <- Has Apollo client and theme
-├── redux                 <- Handles dialog and books state
+/frontend
+  /public                   <- Contains book assets
+  /src
+  ├── app
+  │   └── page.tsx          <- Fetches data
+  ├── components            <- Houses book components
+  ├── lib                   <- Has Apollo client and theme
+  ├── redux                 <- Handles dialog and books state
 
 ## Challenge
 
