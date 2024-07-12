@@ -15,7 +15,6 @@ export const dialogSlice = createSlice({
   reducers: {
     openDialog: (state) => {
       state.open = true;
-      console.log("open dialog", state);
     },
     closeDialog: (state) => {
       state.open = false;
