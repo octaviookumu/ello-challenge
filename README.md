@@ -1,9 +1,12 @@
+![svgviewer-output](https://github.com/ElloTechnology/backend_takehome/assets/3518127/561bc8d4-bffc-4360-b9ea-61e876bcec93)
+
+
 # Ello Engineering Challenge
 
 /public - contains book assets
 /src
 /app
-  /page.tsx - fetches data
+/page.tsx - fetches data
 /components - houses book components
 /lib - has apollo client and theme
 /redux - handles dialog and books state
